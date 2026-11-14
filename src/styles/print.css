@@ -1,0 +1,8 @@
+/* Used by "Save as report" (window.print()). Hide chrome, keep content. */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+  main { max-width: none; padding: 0; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card { break-inside: avoid; border-color: #c9cfc6; }
+}

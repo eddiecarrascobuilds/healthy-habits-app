@@ -1,0 +1,52 @@
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import 'tailwindcss';
+@import './print.css';
+
+/*
+  Tailwind v4: design tokens live here in CSS, not tailwind.config.js.
+  Each --color-* becomes utilities like bg-primary, text-muted, border-line.
+*/
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #f5f6f2;
+  --color-surface: #ffffff;
+  --color-line: #e2e5de;
+  --color-ink: #1c2620;
+  --color-muted: #5b665f;
+  --color-primary: #2e7d57;
+  --color-primary-deep: #1f5c3f;
+  --color-primary-soft: #e4f2ea;
+  --color-primary-darkest: #16432e;
+  --color-outline: #c9cfc6;
+  --color-dash: #dce0d8;
+  --color-warm: #a85a12;
+
+  --radius-card: 24px;
+  --radius-pill: 26px;
+}
+
+@layer base {
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+}
+
+/* Reusable component classes, so screens don't repeat long class lists. */
+@layer components {
+  .card {
+    @apply rounded-card border border-line bg-surface p-6;
+  }
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-pill bg-primary px-6 font-semibold text-white hover:bg-primary-deep;
+  }
+  .label {
+    @apply text-xs font-semibold tracking-widest text-muted uppercase;
+  }
+}
